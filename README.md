@@ -9,7 +9,7 @@ nix-shell --command "runhaskell Bug.hs -Wall"
 But no longer does:
 
 ```
-nix-shell --arg broken false --command "runhaskell Bug.hs -Wall"
+nix-shell --arg broken true --command "runhaskell Bug.hs -Wall"
 ```
 
 ```
