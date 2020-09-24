@@ -4,8 +4,8 @@ let
   /* 00a9d3f261d7da2891801abe35728ab93794644a: broken */
   /* 1f2c19f1581f1450eaf28b4095df203c9e38aeee: broken, HarfBuzz.FeatureT.feature_T */
   nixpkgsPinWorks = {
-    url = https://github.com/nixos/nixpkgs/archive/7d51e48d2ff9bdccd0cb174968f4f290ee7b1578.tar.gz;
-    sha256 = "0472njdlsbbx8hgp111qff9c5wwd3ahadhpgjgip7li9qbxl4cnj";
+    url = https://github.com/nixos/nixpkgs/archive/0513a9128fb5e3bc015f85fda485b0cb78985bf8.tar.gz;
+    sha256 = "0mf4lv0apn9wgidmkj6rls6wpjnq36ms94sh1mk45qjq378n5mq5";
   };
   nixpkgsPinBroken = {
     url = https://github.com/nixos/nixpkgs/archive/00a9d3f261d7da2891801abe35728ab93794644a.tar.gz;
