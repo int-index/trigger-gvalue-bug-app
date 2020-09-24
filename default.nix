@@ -1,4 +1,6 @@
-{ broken ? false }:
+{ broken ? false,
+  patched ? false
+}:
 
 let
   /*   broken, HarfBuzz.FeatureT.feature_T
@@ -18,6 +20,23 @@ let
   nixpkgsPin = if broken then nixpkgsPinBroken else nixpkgsPinWorks;
   pkgs = import (builtins.fetchTarball nixpkgsPin) {};
 
+
+  haskellPackages =
+    if (!patched)
+    then pkgs.haskell.packages.ghc8101
+    else pkgs.haskell.packages.ghc8101.override {
+           overrides = self: super: rec {
+             haskell-gi = self.callCabal2nix "haskell-gi" "${haskell_gi_patched}" {};
+           };
+         };
+
+  haskell_gi_patched =
+    pkgs.fetchFromGitHub {
+      owner = "haskell-gi";
+      repo = "haskell-gi";
+      rev = "6fe7fc271095b5b6115b142f72995ebc11840afb";
+      sha256 = "1xb3rbavkz9kygv65nw8y2gm5vhbcvgack93y237fxrf7vl1xgdv";
+    };
 in
 
 
@@ -25,7 +44,7 @@ pkgs.stdenv.mkDerivation rec {
   name = "trigger-gvalue-bug-app";
   src = ./.;
   buildInputs = [
-    (pkgs.haskell.packages.ghc8101.ghcWithPackages (p : [ p.gi-gtk ]))
+    (haskellPackages.ghcWithPackages (p : [ p.gi-gtk ]))
     pkgs.zlib
     pkgs.gtk3
     pkgs.pkgconfig
