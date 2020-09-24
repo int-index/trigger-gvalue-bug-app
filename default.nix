@@ -1,11 +1,14 @@
 { broken ? false }:
 
 let
-  /* 00a9d3f261d7da2891801abe35728ab93794644a: broken */
-  /* 1f2c19f1581f1450eaf28b4095df203c9e38aeee: broken, HarfBuzz.FeatureT.feature_T */
+  /*   broken, HarfBuzz.FeatureT.feature_T
+     ----------------------------------------
+     1f2c19f1581f1450eaf28b4095df203c9e38aeee
+     8a78890a08dfa697be21891619f799738b956aa5
+  */
   nixpkgsPinWorks = {
-    url = https://github.com/nixos/nixpkgs/archive/0513a9128fb5e3bc015f85fda485b0cb78985bf8.tar.gz;
-    sha256 = "0mf4lv0apn9wgidmkj6rls6wpjnq36ms94sh1mk45qjq378n5mq5";
+    url = https://github.com/nixos/nixpkgs/archive/6a617de2c41eb15dee7c08fccffc0bee9c1ae125.tar.gz;
+    sha256 = "0ahxfi4xqvkjzwalxy0lxwimz5ig2b1vcsrfy5wcmm6x6mq4yma2";
   };
   nixpkgsPinBroken = {
     url = https://github.com/nixos/nixpkgs/archive/00a9d3f261d7da2891801abe35728ab93794644a.tar.gz;
